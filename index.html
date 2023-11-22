@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>GSProm online demo</title>
+    <meta name="description" content="GSProm online demo shows how to use GSProm in your application. This demo is an online
+        mini-editor for GSProm flowcharts that does not require registration." />
+        <meta property="og:title" content="GSProm online demo">
+        <meta property="og:description" content="GSProm online demo shows how to use GSProm in your application. This demo is an online
+        mini-editor for GSProm flowcharts that does not require registration.">
+        <meta property="og:image" content="images/drakon-widget-hero.png">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <style>
+        *,
+        *:before,
+        *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+    </style>
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/main.css" />
+</head>
+
+<body>
+    <div id="main">
+        <div id="left-sidebar"  style="visibility: hidden;"></div>
+        <div id="left-toolbar">
+            <button id="btn1">Nodes</button>
+            <button id="btn2">Algoritm</button>
+            <button id="btn3">Tables</button>
+        </div>
+        <div id="editor-area">
+            <iframe src="http://127.0.0.1:8000" width="100%" height="100%"></iframe>
+        </div>
+        <div id="menu" class="main-menu shadow"></div>
+        <div id="snack-root"></div>
+        <div id="question-root"></div>
+        <div id="popup-root"></div>
+
+    </div>
+    <script src="js/themes.js"></script>
+
+    <script>
+    function toggleDiv() {
+        var div = document.getElementById("left-sidebar");
+        var div2 = document.getElementById("editor-area");
+        if (div.style.visibility === "hidden") {
+            div.style.visibility = "visible";
+            div2.style.left = "100px";
+        } else {
+            div.style.visibility = "hidden";
+            div2.style.left = "50px";
+        }
+    }
+    document.getElementById("btn1").addEventListener("click", function() {
+    var editorArea = document.getElementById("editor-area");
+        editorArea.innerHTML = '<iframe src="http://127.0.0.1:8000" width="100%" height="100%"></iframe>';
+    });
+
+    document.getElementById("btn2").addEventListener("click", function() {
+    var editorArea = document.getElementById("editor-area");
+        editorArea.innerHTML = '<iframe src="http://127.0.0.1:3004" width="100%" height="100%"></iframe>';
+    });
+
+    document.getElementById("btn3").addEventListener("click", function() {
+    var editorArea = document.getElementById("editor-area");
+    editorArea.innerHTML = "New content for editor-area";
+    });
+
+    </script>
+
+</body>
+
+</html>
